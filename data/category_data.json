@@ -1,0 +1,25 @@
+{
+    "nombreApp" : "incities_ar",
+    "categories" : [
+        {
+            "ruta" : "search",
+            "icon" : "book",
+            "texto": "Libros"
+        },
+        {
+            "ruta" : "search",
+            "icon" : "book",
+            "texto": "Presentaciones"
+        },
+        {
+            "ruta" : "search",
+            "icon" : "book",
+            "texto": "Manuales"
+        },
+        {
+            "ruta" : "search",
+            "icon" : "book",
+            "texto": "Documentos"
+        }
+    ]
+}
