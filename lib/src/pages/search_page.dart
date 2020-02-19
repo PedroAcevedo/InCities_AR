@@ -10,6 +10,11 @@ class SearchPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Search'),
+          actions: <Widget>[
+             IconButton(icon: Icon(Icons.search),
+              onPressed: () {
+              })
+          ],
         ),
       body: ListView(
         children: [

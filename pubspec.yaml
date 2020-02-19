@@ -46,6 +46,7 @@ flutter:
   assets:
     - data/category_data.json
     - assets/earth.jpg
+    - assets/LogoInCITIES.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

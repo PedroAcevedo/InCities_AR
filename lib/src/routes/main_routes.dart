@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:incities_ar/pages/menu_page.dart';
-import 'package:incities_ar/pages/search_page.dart';
-import 'package:incities_ar/pages/arcode_page.dart';
-import 'package:incities_ar/pages/setcode_page.dart';
+import 'package:incities_ar/src/pages/menu_page.dart';
+import 'package:incities_ar/src/pages/search_page.dart';
+import 'package:incities_ar/src/pages/arcode_page.dart';
+import 'package:incities_ar/src/pages/setcode_page.dart';
 
 Map<String, WidgetBuilder> getAplicationRoutes(){
 

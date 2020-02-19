@@ -19,10 +19,9 @@ class _SetCodePageState extends State<SetCodePage> {
         body: Column(
               children: <Widget>[
                 Padding(padding: EdgeInsets.only( top: 20.0),),
-                FadeInImage(
-                  image: NetworkImage('https://images7.alphacoders.com/633/thumb-1920-633262.png'),
-                  placeholder: AssetImage('assets/jar-loading.gif'),
-                  width: 200.0,
+                Image(
+                  image: AssetImage('assets/LogoInCITIES.png'),
+                  width: 200.0
                 ),
                 SizedBox(height: 20.0,),
                 TextField(
