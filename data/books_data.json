@@ -1,0 +1,40 @@
+{
+    "results" : [
+    {
+        "id":"10000210212012",
+        "name":"Diplomado",
+        "description":"Este libro es la guia para la construcción de un curso virtual sobre elaboración de AVAS Interculturales",
+        "category":"Libro",
+        "augmented_references" : {
+            "imagen.jpg":"imagen aumentada.png",
+            "imagen2.jpg":"imagen aumentada.png",
+            "imagen3.jpg":"imagen aumentada.png",
+            "imagen4.jpg":"imagen aumentada.png"
+        }
+    },
+    {
+        "id":"10000210212012",
+        "name":"Presentación de resultados",
+        "description":"",
+        "category":"Libro",
+        "augmented_references" : {
+            "imagen.jpg":"imagen aumentada.png",
+            "imagen2.jpg":"imagen aumentada.png",
+            "imagen3.jpg":"imagen aumentada.png",
+            "imagen4.jpg":"imagen aumentada.png"
+        }
+    }, 
+    {
+        "id":"10000210212012",
+        "name":"Formato de compras",
+        "description":"",
+        "category":"Libro",
+        "augmented_references" : {
+            "imagen.jpg":"imagen aumentada.png",
+            "imagen2.jpg":"imagen aumentada.png",
+            "imagen3.jpg":"imagen aumentada.png",
+            "imagen4.jpg":"imagen aumentada.png"
+        }
+    }
+    ]
+}

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:incities_ar/pages/menu_page.dart';
-import 'package:incities_ar/routes/main_routes.dart';
+import 'package:incities_ar/src/pages/menu_page.dart';
+import 'package:incities_ar/src/routes/main_routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 //import 'package:components/src/pages/home_temp.dart';
 
