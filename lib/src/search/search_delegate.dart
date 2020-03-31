@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:incities_ar/src/models/augmented_files_model.dart';
 import 'package:incities_ar/src/providers/augmented_provider.dart';
 
@@ -58,10 +59,20 @@ class SearchDelegatePage extends SearchDelegate {
                   return ListTile(
                     leading: Icon(Icons.data_usage),
                     title: Text( book.name ),
-                    onTap: (){
+                    onTap: () async {
                       close( context, null);
                       if(Platform.isAndroid){
-                        Navigator.pushNamed(context, 'AndroidRA');
+                          final Directory systemTempDir = Directory.systemTemp;
+                          final File tempFile = File('${systemTempDir.path}/image_database.imgdb');
+                          // create tempfile
+                          await tempFile.create();
+                          await rootBundle.load("assets/image_database.imgdb").then((data) {
+                            tempFile.writeAsBytesSync(
+                                data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
+                                Navigator.pushNamed(context, 'AndroidRA');
+                            }).catchError((error) {
+                            throw Exception(error);
+                          });
                       }else{
                         Navigator.pushNamed(context, 'IOSRA');
                       }

@@ -28,12 +28,12 @@ class AugmentedProvider {
   Future<String> fetchCode(url) async {
     final resp = await http.get(url);//);
     final decodedData = json.decode(resp.body);
-    print(decodedData['results']);
-    return decodedData['results'];
+    print(decodedData['status']);
+    return '${decodedData['status']["code"]}';
   }
-  
+    //https://api.myjson.com/bins/1a3h1c
     Future<String> findCode(String code) {
-    code = '1hjiq8';
+    code = '1a3h1c';
     final url =  Uri.https(_url,'/bins/$code');
     return fetchCode(url);
   }

@@ -52,7 +52,7 @@ String _code = '';
                  onPressed: () async {
                    FocusScope.of(context).unfocus();
                    String g = await augmentedProvider.findCode(_code);
-                   if(g == "Código encontrado"){
+                   if(g == "1"){
                      Navigator.pushNamed(context, 'menu');
                    }else{
                      Fluttertoast.showToast(
