@@ -12,7 +12,7 @@ Map<String, WidgetBuilder> getAplicationRoutes(){
       '/'       : ( BuildContext context ) => SetCodePage(),
       'menu'       : ( BuildContext context ) => MenuPage(),
       'search'   : ( BuildContext context ) => SearchPage(),
-      'AndroidRA'   : ( BuildContext context ) => TextViewExample(),
+      'AndroidRA'   : ( BuildContext context ) => TextViewExample(), //ARCodePage(),
       'IOSRA'   : ( BuildContext context ) => ARCodePage(),
     };
 
