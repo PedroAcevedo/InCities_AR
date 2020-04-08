@@ -7,7 +7,7 @@ import 'package:incities_ar/src/models/augmented_files_model.dart';
 
 class AugmentedProvider {
 
-  String _url      = 'api.myjson.com';
+  String _url      = 'jsonblob.com';
 
   Future<List<Book>> _procesarRespuesta(Uri url) async {
     
@@ -20,7 +20,7 @@ class AugmentedProvider {
 
   Future<List<Book>> searchBooks( String query ) async {
 
-    final url = Uri.https(_url,'/bins/ae9tw');
+    final url = Uri.https(_url,'/api/jsonBlob/698572e0-79e0-11ea-94ef-235fd7ccc81a');
     return await _procesarRespuesta(url);
 
   }
@@ -33,8 +33,8 @@ class AugmentedProvider {
   }
     //https://api.myjson.com/bins/1a3h1c
     Future<String> findCode(String code) {
-    code = '1a3h1c';
-    final url =  Uri.https(_url,'/bins/$code');
+    code = '060bdcfa-79df-11ea-94ef-a960415d712a';
+    final url =  Uri.https(_url,'/api/jsonBlob/$code');
     return fetchCode(url);
   }
 
