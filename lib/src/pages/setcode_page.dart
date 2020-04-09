@@ -29,7 +29,7 @@ String _code = '';
              Container(
              padding: EdgeInsets.all(50.0),
              child: TextField(
-                 keyboardType: TextInputType.number,
+                 keyboardType: TextInputType.text,
                  decoration: InputDecoration(
                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                    hintText: 'Ingresa el código',

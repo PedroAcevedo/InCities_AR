@@ -1,91 +1,130 @@
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:vector_math/vector_math_64.dart' as vector;
+import 'package:incities_ar/src/models/augmented_files_model.dart';
+import 'package:incities_ar/src/providers/augmented_provider.dart';
+import 'package:incities_ar/src/search/search_delegate.dart';
 
 class ARCodePage extends StatefulWidget {
   @override
-  _ARCodePageState createState() => _ARCodePageState();
+  _ArCorePageState createState() => _ArCorePageState();
 }
 
-class _ARCodePageState extends State<ARCodePage> {
+class _ArCorePageState extends State<ARCodePage> {
   ArCoreController arCoreController;
+  final augmentedProvider = AugmentedProvider();
+
+  String objectSelected;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Hello World'),
-        ),
-        body: ArCoreView(
-          onArCoreViewCreated: _onArCoreViewCreated,
-        ),
+    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+    objectSelected = arguments['URL'];
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('InCities'),
       ),
+      drawer:Drawer(
+        child: Column(
+          children: <Widget>[
+             DrawerHeader(
+               decoration: BoxDecoration(
+                 gradient: LinearGradient(
+                   colors: <Color>[
+                   Colors.deepOrange,
+                   Colors.orangeAccent
+                 ]),
+               ),
+               child: Container(),),
+             new Expanded(
+               child: _RetrieveOA(context),
+             )
+          ],)
+      ),
+      body: ArCoreView(
+          onArCoreViewCreated: _onArCoreViewCreated,
+          enableTapRecognizer: true,
+        ),
     );
   }
 
   void _onArCoreViewCreated(ArCoreController controller) {
     arCoreController = controller;
-
-    _addSphere(arCoreController);
-    _addCylindre(arCoreController);
-    _addCube(arCoreController);
+    arCoreController.onNodeTap = (name) => onTapHandler(name);
+    arCoreController.onPlaneTap = _handleOnPlaneTap;
   }
 
-  Future _addSphere(ArCoreController controller) async {
-    final ByteData textureBytes = await rootBundle.load('assets/earth.jpg');
+  void _addToucano(ArCoreHitTestResult plane) {
+    final toucanNode = ArCoreReferenceNode(
+        name: "Toucano",
+        objectUrl: objectSelected,
+        position: plane.pose.translation,
+        rotation: plane.pose.rotation);
 
-    final material = ArCoreMaterial(
-        color: Color.fromARGB(120, 66, 134, 244),
-        textureBytes: textureBytes.buffer.asUint8List());
-    final sphere = ArCoreSphere(
-      materials: [material],
-      radius: 0.1,
-    );
-    final node = ArCoreNode(
-      shape: sphere,
-      position: vector.Vector3(0, 0, -1.5),
-    );
-    controller.addArCoreNode(node);
+    arCoreController.addArCoreNodeWithAnchor(toucanNode);
   }
 
-  void _addCylindre(ArCoreController controller) {
-    final material = ArCoreMaterial(
-      color: Colors.red,
-      reflectance: 1.0,
-    );
-    final cylindre = ArCoreCylinder(
-      materials: [material],
-      radius: 0.5,
-      height: 0.3,
-    );
-    final node = ArCoreNode(
-      shape: cylindre,
-      position: vector.Vector3(0.0, -0.5, -2.0),
-    );
-    controller.addArCoreNode(node);
+  void _handleOnPlaneTap(List<ArCoreHitTestResult> hits) {
+    final hit = hits.first;
+    _addToucano(hit);
   }
 
-  void _addCube(ArCoreController controller) {
-    final material = ArCoreMaterial(
-      color: Color.fromARGB(120, 66, 134, 244),
-      metallic: 1.0,
+  void onTapHandler(String name) {
+    print("Flutter: onNodeTap");
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        content: Row(
+          children: <Widget>[
+            Text('Remove $name?'),
+            IconButton(
+                icon: Icon(
+                  Icons.delete,
+                ),
+                onPressed: () {
+                  arCoreController.removeNode(nodeName: name);
+                  Navigator.pop(context);
+                })
+          ],
+        ),
+      ),
     );
-    final cube = ArCoreCube(
-      materials: [material],
-      size: vector.Vector3(0.5, 0.5, 0.5),
-    );
-    final node = ArCoreNode(
-      shape: cube,
-      position: vector.Vector3(-0.5, 0.5, -3.5),
-    );
-    controller.addArCoreNode(node);
   }
 
   @override
   void dispose() {
     arCoreController.dispose();
     super.dispose();
+  }
+
+  Widget _RetrieveOA(BuildContext context) {
+    return FutureBuilder(
+      future: augmentedProvider.searchBooks(''),
+      builder: (BuildContext context, AsyncSnapshot<List<Book>> snapshot) {
+        print(snapshot.toString());
+        if (snapshot.hasData) {
+          final books = snapshot.data;
+
+          return
+          ListView(
+              children: books.map((book) {
+            return ListTile(
+              leading: Image(
+                image: NetworkImage(book.thumbnail.isEmpty
+                    ? "https://www.tibs.org.tw/images/default.jpg"
+                    : book.thumbnail),
+              ),
+              title: Text(book.name),
+              subtitle: Text(book.description),
+              onTap: () async {
+                objectSelected = book.objectUrl;
+                Navigator.pop(context);
+              },
+            );
+          }).toList());
+        } else {
+          return Center(child: CircularProgressIndicator());
+        }
+      },
+    );
   }
 }

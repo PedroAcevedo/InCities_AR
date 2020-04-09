@@ -42,7 +42,7 @@ class MenuPage extends StatelessWidget {
             leading: Icon(Icons.library_books, size: 40.0),
             trailing: Icon(Icons.arrow_forward_ios, color: Colors.blue ,),
             onTap: () {
-              showSearch(context: context, delegate: SearchDelegatePage());
+              showSearch(context: context, delegate: SearchDelegatePage(), query: 'menu');
               //Navigator.pushNamed(context, 'search');
             },
           ),

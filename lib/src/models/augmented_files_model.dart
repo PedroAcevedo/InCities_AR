@@ -21,13 +21,15 @@ class Book {
   String id;
   String name;
   String description;
-  Map<String, dynamic> augmentedReferences;
+  String objectUrl;
+  String thumbnail;
 
   Book({
     this.id,
     this.name,
     this.description,
-    this.augmentedReferences,
+    this.objectUrl,
+    this.thumbnail,
   });
 
   Book.fromJsonMap( Map<String, dynamic> json ) {
@@ -35,7 +37,8 @@ class Book {
     id                  = json['id'];
     name                = json['name'];
     description         = json['description'];
-    augmentedReferences = json['augmented_references'];
+    objectUrl           = json['object_url'];
+    thumbnail           = json['thumbnail'];
   }
 
 }
