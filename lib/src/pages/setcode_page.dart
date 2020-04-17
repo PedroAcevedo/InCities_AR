@@ -46,7 +46,7 @@ class _SetCodePageState extends State<SetCodePage> {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 80.0),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/4),
           ),
           Image(
             image: AssetImage('assets/LogoInCITIES.png'),
@@ -56,17 +56,17 @@ class _SetCodePageState extends State<SetCodePage> {
             height: 20.0,
           ),
           Container(
-            padding: EdgeInsets.all(50.0),
+            margin: EdgeInsets.only(left: 30, right: 30),
             child: TextField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 hintText: 'Ingresa el código',
                 labelText: 'Código',
                 prefixIcon: Icon(Icons.code),
-                                 enabledBorder:OutlineInputBorder(
-                 borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                 borderRadius: BorderRadius.circular(6),
-               ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                  borderRadius: BorderRadius.circular(6),
+                ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.grey, width: 1.0),
                   borderRadius: BorderRadius.circular(6),

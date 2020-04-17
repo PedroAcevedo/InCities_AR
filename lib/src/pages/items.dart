@@ -9,7 +9,7 @@ List items = [
     "header": "Código",
     "description":
         "Debes ingresar el código de sesión generado por el docente.",
-    "image": "assets/select_option.png"
+    "image": "assets/code.png"
   },
   {
     "header": "Seleccionar",
@@ -21,13 +21,13 @@ List items = [
     "header": "Buscar",
     "description":
         "Puedes buscar por los recursos 3D disponibles en la plataforma",
-    "image": "assets/select_option.png"
+    "image": "assets/search.png"
   },
   {
     "header": "RA",
     "description":
         "Proyecta los OA 3D en pantalla para interactuar con los estos y vivir la experiencia de la realidad aumentada",
-    "image": "assets/select_option.png",
+    "image": "assets/augmented.png",
     "button": "Iniciar"
   }
 ];

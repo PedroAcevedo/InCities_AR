@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:incities_ar/src/models/augmented_files_model.dart';
 import 'package:incities_ar/src/providers/augmented_provider.dart';
-import 'package:incities_ar/src/search/search_delegate.dart';
 
 class ARCodePage extends StatefulWidget {
   @override
@@ -24,40 +23,41 @@ class _ArCorePageState extends State<ARCodePage> {
       appBar: AppBar(
         title: const Text('InCities'),
       ),
-      drawer:Drawer(
+      drawer: Drawer(
         child: Column(
-          children: <Widget>[
-              DrawerHeader(
-                child: GestureDetector(onTap: () {
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Color(0xff0066CC),
+            ),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: GestureDetector(
+                onTap: () {
                   //  Navigator.push(context,
                   //    MaterialPageRoute(builder: (context) => inicio_grid_full_2()));
                 },
-                  child: Container(
-                    height: 70,
-
-                    child: GestureDetector(onTap: () {
-                    },
-                      child: SvgPicture.asset(
-
-                        'assets/logo_incities.svg',
-                        color: Colors.white,
-
-
-                      ),
+                child: Container(
+                  height: 70,
+                  color: Color(0xff0066CC),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: SvgPicture.asset(
+                      'assets/logo_incities.svg',
+                      color: Colors.white,
                     ),
-
                   ),
                 ),
-                decoration: BoxDecoration(
-                  color: Color(0xff0066CC),
-                ),
               ),
-             new Expanded(
-               child: _RetrieveOA(context),
-             )
-          ],)
-      ),
-      body: ArCoreView(
+            ),
+          ),
+          new Expanded(
+            child: _RetrieveOA(context),
+          )
+        ],
+      )),
+      body:
+      ArCoreView(
           onArCoreViewCreated: _onArCoreViewCreated,
           enableTapRecognizer: true,
         ),
@@ -72,7 +72,7 @@ class _ArCorePageState extends State<ARCodePage> {
 
   void _addToucano(ArCoreHitTestResult plane) {
     final toucanNode = ArCoreReferenceNode(
-        name: "Toucano",
+        name: "3D_objects",
         objectUrl: objectSelected,
         position: plane.pose.translation,
         rotation: plane.pose.rotation);
@@ -121,8 +121,7 @@ class _ArCorePageState extends State<ARCodePage> {
         if (snapshot.hasData) {
           final books = snapshot.data;
 
-          return
-          ListView(
+          return ListView(
               children: books.map((book) {
             return ListTile(
               leading: Image(
