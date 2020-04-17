@@ -21,7 +21,7 @@ class MenuPage extends StatelessWidget {
   Widget _getDocuments(BuildContext context) {
     
     return FutureBuilder(
-      future: menuProvider.loadData(),
+      future: menuProvider.loadData(Uri.https('jsonblob.com', '/api/jsonBlob/30fa0d50-7eb7-11ea-b97d-87eeec80a901')),
       initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot){
         //print(snapshot.data);
@@ -42,7 +42,7 @@ class MenuPage extends StatelessWidget {
             leading: Icon(Icons.library_books, size: 40.0),
             trailing: Icon(Icons.arrow_forward_ios, color: Colors.blue ,),
             onTap: () {
-              showSearch(context: context, delegate: SearchDelegatePage(), query: 'menu');
+              showSearch(context: context, delegate: SearchDelegatePage(), query: '');
               //Navigator.pushNamed(context, 'search');
             },
           ),

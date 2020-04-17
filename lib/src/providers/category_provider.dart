@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:http/http.dart' as http;
 
 class _CategoryProvider {
 
@@ -10,11 +10,11 @@ class _CategoryProvider {
     //loadData();
   }
 
-  Future<List<dynamic>> loadData() async {
+  Future<List<dynamic>> loadData(Uri url) async {
     
-    final response = await rootBundle.loadString('data/category_data.json');  
-    Map dataMap = json.decode(response);
-    options = dataMap['categories'];
+    final resp = await http.get(url);
+    Map dataMap  = json.decode(resp.body);
+    final options = dataMap['categories'];
     return options;
   }
 

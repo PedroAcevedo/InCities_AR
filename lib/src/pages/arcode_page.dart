@@ -1,5 +1,6 @@
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:incities_ar/src/models/augmented_files_model.dart';
 import 'package:incities_ar/src/providers/augmented_provider.dart';
 import 'package:incities_ar/src/search/search_delegate.dart';
@@ -26,15 +27,31 @@ class _ArCorePageState extends State<ARCodePage> {
       drawer:Drawer(
         child: Column(
           children: <Widget>[
-             DrawerHeader(
-               decoration: BoxDecoration(
-                 gradient: LinearGradient(
-                   colors: <Color>[
-                   Colors.deepOrange,
-                   Colors.orangeAccent
-                 ]),
-               ),
-               child: Container(),),
+              DrawerHeader(
+                child: GestureDetector(onTap: () {
+                  //  Navigator.push(context,
+                  //    MaterialPageRoute(builder: (context) => inicio_grid_full_2()));
+                },
+                  child: Container(
+                    height: 70,
+
+                    child: GestureDetector(onTap: () {
+                    },
+                      child: SvgPicture.asset(
+
+                        'assets/logo_incities.svg',
+                        color: Colors.white,
+
+
+                      ),
+                    ),
+
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Color(0xff0066CC),
+                ),
+              ),
              new Expanded(
                child: _RetrieveOA(context),
              )

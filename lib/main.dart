@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 
 import 'package:incities_ar/src/pages/menu_page.dart';
+import 'package:incities_ar/src/pages/welcome_page.dart';
 import 'package:incities_ar/src/routes/main_routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 //import 'package:components/src/pages/home_temp.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
 
         return (
           MaterialPageRoute(
-            builder: (BuildContext context) => MenuPage()
+            builder: (BuildContext context) => WelcomePage()
           )
         );
       },
