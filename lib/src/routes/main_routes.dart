@@ -19,3 +19,4 @@ Map<String, WidgetBuilder> getAplicationRoutes(){
     };
 
 }
+
