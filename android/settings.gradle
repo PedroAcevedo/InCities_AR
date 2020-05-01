@@ -1,5 +1,4 @@
-include ':app'
-
+include ':app', ':KudanAR'
 def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
 
 def plugins = new Properties()

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:incities_ar/src/providers/augmented_provider.dart';
 
@@ -13,6 +14,8 @@ class SetCodePage extends StatefulWidget {
 
 class _SetCodePageState extends State<SetCodePage> {
   AugmentedProvider augmentedProvider = new AugmentedProvider();
+  static const platform = const MethodChannel('com.example.kudan');
+  String _batteryLevel = 'Unknown battery level.';
 
   String _code = '';
   bool _isLoading = false;
@@ -20,6 +23,7 @@ class _SetCodePageState extends State<SetCodePage> {
   @override
   void initState() {
     super.initState();
+    _getBatteryLevel();
   }
 
   @override
@@ -46,7 +50,8 @@ class _SetCodePageState extends State<SetCodePage> {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/4),
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
           ),
           Image(
             image: AssetImage('assets/LogoInCITIES.png'),
@@ -87,6 +92,10 @@ class _SetCodePageState extends State<SetCodePage> {
       ),
     ));
   }
+
+  Future<Null> _getBatteryLevel() async {
+  await platform.invokeMethod('showNativeView');
+}
 
   void _submit() async {
     FocusScope.of(context).unfocus();

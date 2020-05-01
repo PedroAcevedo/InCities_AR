@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "160919389974",
+    "firebase_url": "https://incitiesra.firebaseio.com",
+    "project_id": "incitiesra",
+    "storage_bucket": "incitiesra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160919389974:android:56951626ae820f1d547237",
+        "android_client_info": {
+          "package_name": "com.xlsoft.kudanar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160919389974-pfpk972a9oh7184flf7jk2ch5tm0h68f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClNGRNHeIriRzVpztZ3jfwx9_GsFdCuBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160919389974-pfpk972a9oh7184flf7jk2ch5tm0h68f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
