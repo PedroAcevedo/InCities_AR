@@ -1,11 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:incities_ar/src/models/augmented_files_model.dart';
 import 'package:incities_ar/src/providers/augmented_provider.dart';
 
 class SearchDelegatePage extends SearchDelegate {
   final augmentedProvider = AugmentedProvider();
+  static const platform = const MethodChannel('com.example.incities_ar');
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -98,7 +100,8 @@ class SearchDelegatePage extends SearchDelegate {
               onTap: () async {
                 close(context, null);
                 if (Platform.isAndroid) {
-                  Navigator.pushNamed(context, 'AndroidRA', arguments: <String, String>{ "URL" : book.objectUrl});
+                  _callRA();
+                  //Navigator.pushNamed(context, 'AndroidRA', arguments: <String, String>{ "URL" : book.objectUrl});
                 } else {
                   Navigator.pushNamed(context, 'IOSRA');
                 }
@@ -111,4 +114,10 @@ class SearchDelegatePage extends SearchDelegate {
       },
     );
   }
+
+
+  Future<Null> _callRA() async {
+    await platform.invokeMethod('showNativeView');
+  }
+
 }
