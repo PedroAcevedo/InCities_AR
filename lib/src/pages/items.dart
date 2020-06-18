@@ -2,31 +2,25 @@ List items = [
   {
     "header": "",
     "description":
-        "Bienvenido al Módulo RA de InCities, para iniciar debes seguir los siguientes pasos",
+        "¡Bienvenido al Módulo RA de InCities!",
     "image": "assets/LogoInCITIES.png"
-  },
-  {
-    "header": "Código",
-    "description":
-        "Debes ingresar el código de sesión generado por el docente.",
-    "image": "assets/code.png"
   },
   {
     "header": "Seleccionar",
     "description":
-        "Debes seleccionar el recurso indicado según la tématica de interes.",
+        "Selecciona la módulo/actividad actual en la que te encuentres.",
     "image": "assets/select_option.png"
   },
   {
     "header": "Buscar",
     "description":
-        "Puedes buscar por los recursos 3D disponibles en la plataforma",
+        "Busca los contenidos de tu interes",
     "image": "assets/search.png"
   },
   {
     "header": "RA",
     "description":
-        "Proyecta los OA 3D en pantalla para interactuar con los estos y vivir la experiencia de la realidad aumentada",
+        "Ubica la camara cerca de la App web para encontrarte con un recurso multimedia",
     "image": "assets/augmented.png",
     "button": "Iniciar"
   }

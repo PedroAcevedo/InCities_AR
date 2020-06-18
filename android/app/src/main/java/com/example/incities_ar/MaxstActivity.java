@@ -27,22 +27,15 @@ public class MaxstActivity extends ARActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maxst);
 
-        imageTargetRenderer = new ImageTrackerRenderer(this);
+        imageTargetRenderer = new ImageTrackerRenderer(this, getIntent().getExtras().getString("asset"));
         glSurfaceView = (GLSurfaceView) findViewById(R.id.gl_surface_view);
         glSurfaceView.setEGLContextClientVersion(2);
         glSurfaceView.setRenderer(imageTargetRenderer);
 
         TrackerManager.getInstance().startTracker(TrackerManager.TRACKER_TYPE_IMAGE);
-        TrackerManager.getInstance().addTrackerData("ImageTarget/Glacier.2dmap", true);
-        TrackerManager.getInstance().addTrackerData("ImageTarget/Lego.2dmap", true);
-        TrackerManager.getInstance().addTrackerData("ImageTarget/Blocks.2dmap", true);
         TrackerManager.getInstance().addTrackerData("ImageTarget/CarmenRicardo.2dmap", true);
-//		TrackerManager.getInstance().addTrackerData("{\"image\":\"add_image\",\"image_path\":\"ImageTarget/Blocks.png\",\"image_width\":0.26,\"inclusion\":[{\"x\":50, \"y\":100, \"width\":400, \"height\":400}, {\"x\":400, \"y\":80, \"width\":400, \"height\":400}], \"exclusion\":[{\"x\":200, \"y\":200, \"width\":150, \"height\":150}]}", true);
-        //TrackerManager.getInstance().addTrackerData("{\"image\":\"add_image\",\"image_path\":\"ImageTarget/Blocks.png\",\"image_width\":0.26}", true);
-        //TrackerManager.getInstance().addTrackerData("{\"image\":\"add_image\",\"image_path\":\"ImageTarget/Glacier.png\",\"image_width\":0.26}", true);
-        //TrackerManager.getInstance().addTrackerData("{\"image\":\"add_image\",\"image_path\":\"/sdcard/Download/sample/Blocks.png\",\"image_width\":0.26}", false);
-        //TrackerManager.getInstance().addTrackerData("{\"image\":\"add_image\",\"image_path\":\"/sdcard/Download/sample/Glacier.png\",\"image_width\":0.26}", false);
-        TrackerManager.getInstance().loadTrackerData();
+        TrackerManager.getInstance().addTrackerData("ImageTarget/Logo.2dmap", true);
+       TrackerManager.getInstance().loadTrackerData();
 
         preferCameraResolution = getSharedPreferences(SampleUtil.PREF_NAME, Activity.MODE_PRIVATE).getInt(SampleUtil.PREF_KEY_CAM_RESOLUTION, 0);
 

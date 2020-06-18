@@ -38,14 +38,14 @@ public class MainActivity extends FlutterActivity {
                     permissionsRequest();
                     Intent i = new Intent(getApplicationContext(), MaxstActivity.class);
                     //Request for permissions
-                    i.putExtra("id", "");
+                    i.putExtra("asset", (String) call.argument("url"));
                     startActivity(i);
                     result.success(true);
                 } else {
                   result.notImplemented();
                 }
               }
-            });
+            }); 
 
   }
 

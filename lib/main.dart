@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-
-import 'package:incities_ar/src/pages/menu_page.dart';
 import 'package:incities_ar/src/pages/welcome_page.dart';
 import 'package:incities_ar/src/routes/main_routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
