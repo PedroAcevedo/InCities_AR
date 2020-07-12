@@ -7,7 +7,7 @@ import 'package:incities_ar/src/models/augmented_files_model.dart';
 
 class AugmentedProvider {
 
-  String _url      = 'jsonblob.com';
+  String _url      = 'incities-interactive.herokuapp.com';
 
   Future<List<Book>> _procesarRespuesta(Uri url) async {
     
@@ -18,9 +18,10 @@ class AugmentedProvider {
     return books.items;
   }
 
-  Future<List<Book>> searchBooks( String query ) async {
+  Future<List<Book>> searchBooks( String query, int module) async {
 
-    final url = Uri.https(_url,'/api/jsonBlob/698572e0-79e0-11ea-94ef-235fd7ccc81a');
+    final url = Uri.http(_url,'/api/RAmaterial/$module/$query');
+    print(url.toString());
     return await _procesarRespuesta(url);
 
   }

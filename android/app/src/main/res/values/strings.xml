@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">InCities_AR</string>
+    <string name="app_key">Vnbli/NSYtYZNkmaZgOGCVyZo/SsufZPmA+cUoGZPFM=</string>
+    <string name="camera_open_fail">mURIO LA cAMARA</string>
+</resources>

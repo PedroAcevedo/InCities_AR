@@ -14,7 +14,7 @@ class _CategoryProvider {
     
     final resp = await http.get(url);
     Map dataMap  = json.decode(resp.body);
-    final options = dataMap['categories'];
+    final options = dataMap['data'];
     return options;
   }
 

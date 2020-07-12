@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'items.dart';
 
@@ -21,7 +22,7 @@ class _WelcomePageState extends State<WelcomePage> {
     elevation: 0,
     child: Text("Empezar",style: TextStyle(color: Colors.white),),shape: RoundedRectangleBorder(
        borderRadius: new BorderRadius.circular(6),),
-      onPressed: () { Navigator.pushNamed(context, 'setcode'); },
+      onPressed: () { Navigator.pushNamed(context, 'modules'); },
     );
 
     slides = items
@@ -57,7 +58,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         style: TextStyle(
                             color: Colors.grey,
                             letterSpacing: 1.2,
-                            fontSize: 16.0,
+                            fontSize: 20.0,
                             height: 1.3),
                         textAlign: TextAlign.center,
                       ),
@@ -88,6 +89,14 @@ class _WelcomePageState extends State<WelcomePage> {
       body: Container(
         child: Stack(
           children: <Widget>[
+             Container(
+            margin: EdgeInsets.only(top: 300),
+            width: double.infinity,
+            height: double.infinity,
+            child: SvgPicture.asset(
+              'assets/nubes.svg',
+            ),
+          ),
             PageView.builder(
               controller: _pageViewController,
               itemCount: slides.length,
