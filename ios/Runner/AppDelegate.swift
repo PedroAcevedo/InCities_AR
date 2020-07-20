@@ -2,7 +2,7 @@ import UIKit
 import Flutter
 
 @UIApplicationMain
-@objc class AppDelegate: FlutterAppDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+@objc class AppDelegate: FlutterAppDelegate, UINavigationControllerDelegate {
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -22,6 +22,20 @@ import Flutter
                 self.window?.rootViewController = nil
                 
                 let viewToPush = SecondViewController()
+                
+                guard let args = flutterMethodCall.arguments else {
+                  return
+                }
+                if let myArgs = args as? [String: Any],
+                    let url_image = myArgs["url"] as? String,
+                    let map = myArgs["map"] as? String {
+                    viewToPush.map = map
+                    viewToPush.url = url_image
+                    print("Params received on iOS = \(map), \(url_image)")
+                } else {
+                  FlutterError(code: "-1", message: "iOS could not extract " +
+                     "flutter arguments in method: (sendParams)", details: nil)
+                }
                 
                 let navigationController = UINavigationController(rootViewController: flutterViewController)
                 

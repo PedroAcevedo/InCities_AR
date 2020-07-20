@@ -2,19 +2,22 @@
 //  SecondViewController.swift
 //  Runner
 //
-//  Created by Proyecto App_AVAS_Intercultural on 7/07/20.
-//  Copyright © 2020 The Chromium Authors. All rights reserved.
+//  Created by Chetan Bhalerao on 7/30/18.
+//  Copyright © 2018 The Chromium Authors. All rights reserved.
 //
-
-import SwiftUI
+import UIKit
 
 class SecondViewController: UIViewController {
 
+    var map: String!
+    var url: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavBar()
-        
+        /*let maxstAR_cubePath = Bundle.main.path(forResource: "MaxstAR_Cube", ofType: "png", inDirectory: "data.xcassets/Texture")!*/
+        print("Params received on iOS = \(String(describing: map)), \(String(describing: url))")
     }
+    
     func setUpNavBar(){
         self.navigationItem.title = "IOS component"
         self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.done, target: self, action: nil)
@@ -24,7 +27,7 @@ class SecondViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = UIColor(red:  34/255.0, green: 149/255.0, blue: 243/255.0, alpha: 100.0/100.0)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
-        var navigationBarAppearace = UINavigationBar.appearance()
+        let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = self.uicolorFromHex(rgbValue: 0xffffff)
         // change navigation item title color
         
@@ -43,3 +46,4 @@ class SecondViewController: UIViewController {
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
 }
+
