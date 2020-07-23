@@ -14,7 +14,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavBar()
-        /*let maxstAR_cubePath = Bundle.main.path(forResource: "MaxstAR_Cube", ofType: "png", inDirectory: "data.xcassets/Texture")!*/
+        //let maxstAR_cubePath = Bundle.main.path(forResource: "MaxstAR_Cube", ofType: "png", inDirectory: "data.xcassets/Texture")!
         print("Params received on iOS = \(String(describing: map)), \(String(describing: url))")
     }
     

@@ -38,11 +38,11 @@
 		0F3B5BF724BE094F0009B6E3 /* TextureCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B5BE024BE094E0009B6E3 /* TextureCube.swift */; };
 		0F3B5BF824BE094F0009B6E3 /* VideoPanelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B5BE124BE094E0009B6E3 /* VideoPanelRenderer.swift */; };
 		0F3B5BF924BE094F0009B6E3 /* PyramidRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B5BE224BE094F0009B6E3 /* PyramidRenderer.swift */; };
-		0F3B5BFB24BE0E0F0009B6E3 /* MaxstARSDKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3B5BFA24BE0E0F0009B6E3 /* MaxstARSDKFramework.framework */; };
-		0F3B5BFC24BE0E100009B6E3 /* MaxstARSDKFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3B5BFA24BE0E0F0009B6E3 /* MaxstARSDKFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0F3B5BFE24BE0E180009B6E3 /* MaxstVideoFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3B5BFD24BE0E180009B6E3 /* MaxstVideoFramework.framework */; };
-		0F3B5BFF24BE0E180009B6E3 /* MaxstVideoFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3B5BFD24BE0E180009B6E3 /* MaxstVideoFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0F3B5C0124BE12220009B6E3 /* ImageTrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B5C0024BE12220009B6E3 /* ImageTrackerController.swift */; };
+		0F3C824724CA2D96001939A6 /* MaxstARSDKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C824624CA2D96001939A6 /* MaxstARSDKFramework.framework */; };
+		0F3C824824CA2D96001939A6 /* MaxstARSDKFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C824624CA2D96001939A6 /* MaxstARSDKFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0F3C824A24CA2DA0001939A6 /* MaxstVideoFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C824924CA2DA0001939A6 /* MaxstVideoFramework.framework */; };
+		0F3C824B24CA2DA0001939A6 /* MaxstVideoFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C824924CA2DA0001939A6 /* MaxstVideoFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0FD900BC24C4E35A0008F451 /* Image2DRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD900BB24C4E35A0008F451 /* Image2DRenderer.swift */; };
 		0FD900C124C4E6300008F451 /* data.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FD900C024C4E6300008F451 /* data.xcassets */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
@@ -66,10 +66,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0F3B5BFC24BE0E100009B6E3 /* MaxstARSDKFramework.framework in Embed Frameworks */,
+				0F3C824824CA2D96001939A6 /* MaxstARSDKFramework.framework in Embed Frameworks */,
 				3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks */,
 				9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks */,
-				0F3B5BFF24BE0E180009B6E3 /* MaxstVideoFramework.framework in Embed Frameworks */,
+				0F3C824B24CA2DA0001939A6 /* MaxstVideoFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,9 +108,9 @@
 		0F3B5BE024BE094E0009B6E3 /* TextureCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureCube.swift; sourceTree = "<group>"; };
 		0F3B5BE124BE094E0009B6E3 /* VideoPanelRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPanelRenderer.swift; sourceTree = "<group>"; };
 		0F3B5BE224BE094F0009B6E3 /* PyramidRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyramidRenderer.swift; sourceTree = "<group>"; };
-		0F3B5BFA24BE0E0F0009B6E3 /* MaxstARSDKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxstARSDKFramework.framework; sourceTree = "<group>"; };
-		0F3B5BFD24BE0E180009B6E3 /* MaxstVideoFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxstVideoFramework.framework; sourceTree = "<group>"; };
 		0F3B5C0024BE12220009B6E3 /* ImageTrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrackerController.swift; sourceTree = "<group>"; };
+		0F3C824624CA2D96001939A6 /* MaxstARSDKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxstARSDKFramework.framework; sourceTree = "<group>"; };
+		0F3C824924CA2DA0001939A6 /* MaxstVideoFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxstVideoFramework.framework; sourceTree = "<group>"; };
 		0FD900BB24C4E35A0008F451 /* Image2DRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image2DRenderer.swift; sourceTree = "<group>"; };
 		0FD900C024C4E6300008F451 /* data.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = data.xcassets; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
@@ -142,14 +142,14 @@
 				0F3B5BAC24BB91F90009B6E3 /* CoreGraphics.framework in Frameworks */,
 				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
 				0F3B5BAE24BB92230009B6E3 /* AVFoundation.framework in Frameworks */,
-				0F3B5BFE24BE0E180009B6E3 /* MaxstVideoFramework.framework in Frameworks */,
+				0F3C824A24CA2DA0001939A6 /* MaxstVideoFramework.framework in Frameworks */,
 				0F3B5BBA24BB926E0009B6E3 /* QuartzCore.framework in Frameworks */,
 				0F3B5BB024BB922E0009B6E3 /* Accelerate.framework in Frameworks */,
 				0F3B5BB824BB925E0009B6E3 /* CoreMedia.framework in Frameworks */,
 				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
 				0F3B5BB624BB92580009B6E3 /* CoreVideo.framework in Frameworks */,
 				0F3B5BB224BB92440009B6E3 /* MetalKit.framework in Frameworks */,
-				0F3B5BFB24BE0E0F0009B6E3 /* MaxstARSDKFramework.framework in Frameworks */,
+				0F3C824724CA2D96001939A6 /* MaxstARSDKFramework.framework in Frameworks */,
 				0F3B5BB424BB924E0009B6E3 /* Metal.framework in Frameworks */,
 				9B6FAF23FE68670FC53A6521 /* Pods_Runner.framework in Frameworks */,
 			);
@@ -191,8 +191,8 @@
 		6AEDBCEBC542653F818F9C67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0F3B5BFD24BE0E180009B6E3 /* MaxstVideoFramework.framework */,
-				0F3B5BFA24BE0E0F0009B6E3 /* MaxstARSDKFramework.framework */,
+				0F3C824924CA2DA0001939A6 /* MaxstVideoFramework.framework */,
+				0F3C824624CA2D96001939A6 /* MaxstARSDKFramework.framework */,
 				0F3B5BB924BB926E0009B6E3 /* QuartzCore.framework */,
 				0F3B5BB724BB925E0009B6E3 /* CoreMedia.framework */,
 				0F3B5BB524BB92580009B6E3 /* CoreVideo.framework */,

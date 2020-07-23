@@ -38,10 +38,13 @@ class ImageTrackerViewController: UIViewController, MTKViewDelegate {
     var screenSizeWidth:Float = 0.0
     var screenSizeHeight:Float = 0.0
     
+    var map: String!
+    var url: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMetal()
-        
+        print("Params received on iOS = \(String(describing: map)), \(String(describing: url))")
         extendSwitch.setOn(false, animated: false)
         multiSwitch.setOn(false, animated: false)
         normalSwitch.setOn(true, animated: false)
@@ -77,8 +80,8 @@ class ImageTrackerViewController: UIViewController, MTKViewDelegate {
         self.device = self.metalView?.device
         self.commandQueue = device!.makeCommandQueue()
         
-        let moviePath1 = Bundle.main.path(forResource: "VideoSample", ofType: "mp4", inDirectory: "data/Video")!
-        let moviePath2 = Bundle.main.path(forResource: "ShutterShock", ofType: "mp4", inDirectory: "data/Video")!
+        let moviePath1 = Bundle.main.path(forResource: "VideoSample", ofType: "mp4", inDirectory: "data.xcassets/Video")!
+        let moviePath2 = Bundle.main.path(forResource: "ShutterShock", ofType: "mp4", inDirectory: "data.xcassets/Video")!
         
         videoPanelRenderer = VideoPanelRenderer.init(device: self.device)
         chromakeyVideoPanelRenderer = ChromakeyVideoPanelRenderer.init(device: self.device)

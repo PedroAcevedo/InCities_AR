@@ -21,7 +21,7 @@ import Flutter
             UIView.animate(withDuration: 0.5, animations: {
                 self.window?.rootViewController = nil
                 
-                let viewToPush = SecondViewController()
+                let viewToPush = ImageTrackerViewController()
                 
                 guard let args = flutterMethodCall.arguments else {
                   return
