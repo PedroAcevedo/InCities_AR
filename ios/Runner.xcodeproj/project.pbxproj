@@ -43,6 +43,7 @@
 		0F3C824824CA2D96001939A6 /* MaxstARSDKFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C824624CA2D96001939A6 /* MaxstARSDKFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0F3C824A24CA2DA0001939A6 /* MaxstVideoFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C824924CA2DA0001939A6 /* MaxstVideoFramework.framework */; };
 		0F3C824B24CA2DA0001939A6 /* MaxstVideoFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C824924CA2DA0001939A6 /* MaxstVideoFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0F3C824D24CB2C44001939A6 /* ImageTrackerController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3C824C24CB2C44001939A6 /* ImageTrackerController2.swift */; };
 		0FD900BC24C4E35A0008F451 /* Image2DRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD900BB24C4E35A0008F451 /* Image2DRenderer.swift */; };
 		0FD900C124C4E6300008F451 /* data.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FD900C024C4E6300008F451 /* data.xcassets */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
@@ -111,6 +112,7 @@
 		0F3B5C0024BE12220009B6E3 /* ImageTrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrackerController.swift; sourceTree = "<group>"; };
 		0F3C824624CA2D96001939A6 /* MaxstARSDKFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxstARSDKFramework.framework; sourceTree = "<group>"; };
 		0F3C824924CA2DA0001939A6 /* MaxstVideoFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxstVideoFramework.framework; sourceTree = "<group>"; };
+		0F3C824C24CB2C44001939A6 /* ImageTrackerController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrackerController2.swift; sourceTree = "<group>"; };
 		0FD900BB24C4E35A0008F451 /* Image2DRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image2DRenderer.swift; sourceTree = "<group>"; };
 		0FD900C024C4E6300008F451 /* data.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = data.xcassets; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				0F2B04B024B51B3A0005630D /* SecondViewController.swift */,
 				0F3B5C0024BE12220009B6E3 /* ImageTrackerController.swift */,
 				0FD900C024C4E6300008F451 /* data.xcassets */,
+				0F3C824C24CB2C44001939A6 /* ImageTrackerController2.swift */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				0F3B5BF624BE094F0009B6E3 /* BaseModel.swift in Sources */,
 				0F3B5BF924BE094F0009B6E3 /* PyramidRenderer.swift in Sources */,
 				0F3B5BE424BE094F0009B6E3 /* FeaturePoint.swift in Sources */,
+				0F3C824D24CB2C44001939A6 /* ImageTrackerController2.swift in Sources */,
 				0FD900BC24C4E35A0008F451 /* Image2DRenderer.swift in Sources */,
 				0F3B5BF124BE094F0009B6E3 /* Axis.swift in Sources */,
 				0F3B5BEC24BE094F0009B6E3 /* CubeRenderer.swift in Sources */,

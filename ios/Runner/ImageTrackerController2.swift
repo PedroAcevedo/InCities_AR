@@ -1,9 +1,9 @@
 //
-//  ImageTrackerViewController.swift
-//  MaxstARSampleSwift
+//  ImageTrackerController2.swift
+//  Runner
 //
-//  Created by Kimseunglee on 2017. 12. 12..
-//  Copyright © 2017년 Maxst. All rights reserved.
+//  Created by Proyecto App_AVAS_Intercultural on 24/07/20.
+//  Copyright © 2020 The Chromium Authors. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import MetalKit
 import MaxstARSDKFramework
 import MaxstVideoFramework
 
-class ImageTrackerViewController: UIViewController, MTKViewDelegate {
+class ImageTrackerViewController2: UIViewController, MTKViewDelegate {
     
     @IBOutlet var normalSwitch: UISwitch!
     @IBOutlet var multiSwitch: UISwitch!
@@ -79,6 +79,9 @@ class ImageTrackerViewController: UIViewController, MTKViewDelegate {
         self.metalView?.preferredFramesPerSecond = 60;
         self.device = self.metalView?.device
         self.commandQueue = device!.makeCommandQueue()
+        
+        
+        
         
         let moviePath1 = Bundle.main.path(forResource: "VideoSample", ofType: "mp4", inDirectory: "data.xcassets/Video")!
         let moviePath2 = Bundle.main.path(forResource: "ShutterShock", ofType: "mp4", inDirectory: "data.xcassets/Video")!
