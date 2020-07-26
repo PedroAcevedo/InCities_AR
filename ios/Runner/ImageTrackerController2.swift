@@ -49,6 +49,18 @@ class ImageTrackerViewController2: UIViewController, MTKViewDelegate {
         multiSwitch.setOn(false, animated: false)
         normalSwitch.setOn(true, animated: false)
         
+        let ext = url.components(separatedBy: "/")[4].components(separatedBy: ".")[1]
+        print(ext)
+        if( ext == "jpg" && ext == "png"){
+             print("I am an image")
+        }else{
+            if( ext == "mp4"){
+                 print("I am a video")
+            }else{
+                print("Nothig here")
+            }
+        }
+        
         let maxstAR_cubePath = Bundle.main.path(forResource: "MaxstAR_Cube", ofType: "png", inDirectory: "data.xcassets/Texture")!
         let maxst_CubeImage = UIImage(contentsOfFile: maxstAR_cubePath)!
         textureCube?.setTexture(textureImage: maxst_CubeImage)
@@ -79,8 +91,6 @@ class ImageTrackerViewController2: UIViewController, MTKViewDelegate {
         self.metalView?.preferredFramesPerSecond = 60;
         self.device = self.metalView?.device
         self.commandQueue = device!.makeCommandQueue()
-        
-        
         
         
         let moviePath1 = Bundle.main.path(forResource: "VideoSample", ofType: "mp4", inDirectory: "data.xcassets/Video")!
@@ -230,13 +240,15 @@ class ImageTrackerViewController2: UIViewController, MTKViewDelegate {
        
         let blocksTrackerMapPath:String = Bundle.main.path(forResource: "Blocks", ofType: "2dmap", inDirectory: "data.xcassets/SDKSample")!
         let glacierTrackerMapPath:String = Bundle.main.path(forResource: "Glacier", ofType: "2dmap", inDirectory: "data.xcassets/SDKSample")!
-        let legoTrackerMapPath:String = Bundle.main.path(forResource: "Lego", ofType: "2dmap", inDirectory: "data/SDKSample")!
+        let legoTrackerMapPath:String = Bundle.main.path(forResource: "Lego", ofType: "2dmap", inDirectory: "data.xcassets/SDKSample")!
+        let CarmenTrackerMapPath:String = Bundle.main.path(forResource: "CarmenRicardo", ofType: "2dmap", inDirectory: "data.xcassets/SDKSample")!
         
         self.trackingManager.start(.TRACKER_TYPE_IMAGE)
         self.trackingManager.setTrackingOption(.NORMAL_TRACKING)
         self.trackingManager.addTrackerData(blocksTrackerMapPath)
         self.trackingManager.addTrackerData(glacierTrackerMapPath)
         self.trackingManager.addTrackerData(legoTrackerMapPath)
+        self.trackingManager.addTrackerData(CarmenTrackerMapPath)
         self.trackingManager.loadTrackerData()
     }
 
