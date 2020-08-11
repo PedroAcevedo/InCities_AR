@@ -33,8 +33,7 @@ public class MaxstActivity extends ARActivity {
         glSurfaceView.setRenderer(imageTargetRenderer);
 
         TrackerManager.getInstance().startTracker(TrackerManager.TRACKER_TYPE_IMAGE);
-        TrackerManager.getInstance().addTrackerData("ImageTarget/CarmenRicardo.2dmap", true);
-        TrackerManager.getInstance().addTrackerData("ImageTarget/Logo.2dmap", true);
+        TrackerManager.getInstance().addTrackerData("ImageTarget/"+ getIntent().getExtras().getString("map") +".2dmap", true);
         TrackerManager.getInstance().loadTrackerData();
 
         preferCameraResolution = getSharedPreferences(SampleUtil.PREF_NAME, Activity.MODE_PRIVATE).getInt(SampleUtil.PREF_KEY_CAM_RESOLUTION, 0);
