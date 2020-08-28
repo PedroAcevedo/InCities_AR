@@ -7,7 +7,7 @@ import 'package:incities_ar/src/models/augmented_files_model.dart';
 
 class AugmentedProvider {
 
-  String _url = 'apiavas.dcm-system.co/public';
+  String _url = 'apiavas.dcm-system.co';
 
   Future<List<Book>> _procesarRespuesta(Uri url) async {
     
@@ -20,7 +20,7 @@ class AugmentedProvider {
 
   Future<List<Book>> searchBooks( String query, int module) async {
 
-    final url = Uri.http(_url,'/api/RAmaterial/$module/$query');
+    final url = Uri.http(_url,'/public/api/RAmaterial/$module/$query');
     print(url.toString());
     return await _procesarRespuesta(url);
 

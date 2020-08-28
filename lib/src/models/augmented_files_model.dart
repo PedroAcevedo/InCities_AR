@@ -17,7 +17,7 @@ class Book {
   String id;
   String name;
   String activity;
-  int module;
+  String module;
   String map;
   String download;
   String extension;
