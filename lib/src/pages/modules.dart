@@ -61,7 +61,7 @@ class _ModulePageState extends State<ModulePage> {
 
   Widget _getDocuments(BuildContext context) {
     return FutureBuilder(
-      future: menuProvider.loadData(Uri.https("incities-interactive.herokuapp.com",
+      future: menuProvider.loadData(Uri.https("apiavas.dcm-system.co/public",
           "/api/RAmodules")),
       initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {

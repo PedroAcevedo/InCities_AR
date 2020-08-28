@@ -7,7 +7,7 @@ import 'package:incities_ar/src/models/augmented_files_model.dart';
 
 class AugmentedProvider {
 
-  String _url = 'incities-interactive.herokuapp.com';
+  String _url = 'apiavas.dcm-system.co/public';
 
   Future<List<Book>> _procesarRespuesta(Uri url) async {
     
