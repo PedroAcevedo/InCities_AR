@@ -61,8 +61,8 @@ class _ModulePageState extends State<ModulePage> {
 
   Widget _getDocuments(BuildContext context) {
     return FutureBuilder(
-      future: menuProvider.loadData(Uri.https("apiavas.dcm-system.co",
-          "/public/api/RAmodules")),
+      future: menuProvider.loadData(Uri.http("10.0.2.2:8000",//'apiavas.dcm-system.co
+          "/api/RAmodules")),
       initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
         //print(snapshot.data);
@@ -74,7 +74,7 @@ class _ModulePageState extends State<ModulePage> {
           return new Text('Error: ${snapshot.error}');
         } else {
           return ListView(
-            padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 20.0),
+            padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 20.0, bottom: 20.0),
             children: _listItems(snapshot.data, context),
           );
         }
@@ -88,9 +88,9 @@ class _ModulePageState extends State<ModulePage> {
         children: <Widget>[
           Card(
             child: ListTile(
-                leading: Image.asset('assets/ic_diagnostico.png'),
+                leading: Image.asset('assets/ic_${cat["name"].split(" ")[0]}.png'),
                 title: Text(cat['name']),
-                subtitle: Text(cat['description']),
+                subtitle: Text(cat['description'].split('.')[0] + '.  '),
                 trailing: Icon(Icons.arrow_forward_ios),
                 isThreeLine: true,
                 onTap: () {

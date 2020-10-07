@@ -14,10 +14,10 @@ class Books {
 }
 
 class Book {
-  String id;
+  int id;
   String name;
   String activity;
-  String module;
+  int module;
   String map;
   String download;
   String extension;
@@ -32,7 +32,7 @@ class Book {
       this.extension});
 
   Book.fromJsonMap(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['ra_material_id'];
     name = json['name'];
     activity = json['activity_title'];
     module = json['module'];

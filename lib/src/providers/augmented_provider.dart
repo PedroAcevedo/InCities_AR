@@ -7,7 +7,7 @@ import 'package:incities_ar/src/models/augmented_files_model.dart';
 
 class AugmentedProvider {
 
-  String _url = 'apiavas.dcm-system.co';
+  String _url = '10.0.2.2:8000'; // apiavas.dcm-system.co
 
   Future<List<Book>> _procesarRespuesta(Uri url) async {
     
@@ -20,23 +20,10 @@ class AugmentedProvider {
 
   Future<List<Book>> searchBooks( String query, int module) async {
 
-    final url = Uri.http(_url,'/public/api/RAmaterial/$module/$query');
+    final url = Uri.http(_url,'/api/RAmaterial/$module/$query');///public
     print(url.toString());
     return await _procesarRespuesta(url);
 
-  }
-
-  Future<String> fetchCode(url) async {
-    final resp = await http.get(url);//);
-    final decodedData = json.decode(resp.body);
-    print(decodedData['status']);
-    return '${decodedData['status']["code"]}';
-  }
-    //https://api.myjson.com/bins/1a3h1c
-    Future<String> findCode(String code) {
-    code = '060bdcfa-79df-11ea-94ef-a960415d712a';
-    final url =  Uri.https(_url,'/api/jsonBlob/$code');
-    return fetchCode(url);
   }
 
 }
