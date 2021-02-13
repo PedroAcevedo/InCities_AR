@@ -16,53 +16,56 @@ class _ModulePageState extends State<ModulePage> {
     // TODO: implement initState
 
     super.initState();
-     PermissionsService().requestPermission(onPermissionDenied: () {
-        print('Permission has been denied');
-      });
+    PermissionsService().requestPermission(onPermissionDenied: () {
+      print('Permission has been denied');
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        body: Stack(children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 300),
-            width: double.infinity,
-            height: double.infinity,
-            child: SvgPicture.asset(
-              'assets/nubes.svg',
+        body: SafeArea(
+          child: Stack(children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 20.0),
+              width: double.infinity,
+              height: double.infinity,
+              child: SvgPicture.asset(
+                'assets/nubes.svg',
+              ),
             ),
-          ),
-          Container(
-              child: Column(children: <Widget>[
-            Align(
-              alignment: Alignment.centerLeft,
-              child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  height: 140,
-                  child: SvgPicture.asset(
-                    'assets/logo_incities.svg',
+            Container(
+                child: Column(children: <Widget>[
+              Align(
+                alignment: Alignment.centerLeft,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    margin: EdgeInsets.only(left: 20, right: 20),
+                    height: 140,
+                    child: SvgPicture.asset(
+                      'assets/logo_incities.svg',
+                    ),
                   ),
                 ),
               ),
-            ),
-            Text('Módulos',
-                style: TextStyle(
-                    fontSize: 50.0, color: Color(Colors.black.value))),
-            Expanded(child: _getDocuments(context))
-          ])),
-        ]),
+              Text('Módulos',
+                  style: TextStyle(
+                      fontSize: 50.0, color: Color.fromRGBO(0, 102, 201, 1)	)),
+              Expanded(child: _getDocuments(context))
+            ])),
+          ]),
+        ),
       ),
     );
   }
 
   Widget _getDocuments(BuildContext context) {
     return FutureBuilder(
-      future: menuProvider.loadData(Uri.http("10.0.2.2:8000",//'apiavas.dcm-system.co
-          "/api/RAmodules")),
+      future: menuProvider.loadData(Uri.http(
+          "apiavas.dcm-system.co", //'apiavas.dcm-system.co
+          "/public/api/RAmodules")),
       initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
         //print(snapshot.data);
@@ -74,7 +77,8 @@ class _ModulePageState extends State<ModulePage> {
           return new Text('Error: ${snapshot.error}');
         } else {
           return ListView(
-            padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 20.0, bottom: 20.0),
+            padding: EdgeInsets.only(
+                left: 15.0, right: 15.0, top: 20.0, bottom: 20.0),
             children: _listItems(snapshot.data, context),
           );
         }
@@ -86,20 +90,30 @@ class _ModulePageState extends State<ModulePage> {
     return data.map((cat) {
       return Column(
         children: <Widget>[
-          Card(
-            child: ListTile(
-                leading: Image.asset('assets/ic_${cat["name"].split(" ")[0]}.png'),
-                title: Text(cat['name']),
-                subtitle: Text(cat['description'].split('.')[0] + '.  '),
-                trailing: Icon(Icons.arrow_forward_ios),
-                isThreeLine: true,
-                onTap: () {
-                  showSearch(
-                      context: context,
-                      delegate: SearchDelegatePage(cat['id']),
-                      query: '');
-                  //Navigator.pushNamed(context, 'search');
-                }),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Container(
+              color: Colors.white,
+              margin: EdgeInsets.only( bottom: 15.0 ),
+              padding: EdgeInsets.only( bottom: 15.0),
+              child: ListTile(
+                  leading:
+                      Image.asset('assets/ic_${cat["name"].split(" ")[0]}.png'),
+                  title: Padding(
+                    padding: EdgeInsets.only( bottom: 5.0),
+                    child: Text(cat['name'], style: TextStyle(fontWeight: FontWeight.w600),),
+                  ),
+                  subtitle: Text(cat['description'].split('.')[0] + '.  '),
+                  trailing: Icon(Icons.arrow_forward_ios, size: 15.0,),
+                  isThreeLine: true,
+                  onTap: () {
+                    showSearch(
+                        context: context,
+                        delegate: SearchDelegatePage(cat['id']),
+                        query: '');
+                    //Navigator.pushNamed(context, 'search');
+                  }),
+            ),
           ),
         ],
       );

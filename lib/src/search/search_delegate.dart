@@ -11,10 +11,10 @@ class SearchDelegatePage extends SearchDelegate {
   final augmentedProvider = AugmentedProvider();
   static const platform = const MethodChannel('com.example.incities_ar');
   var dio = Dio();
-  int moduleId  = 0;
+  int moduleId = 0;
   BuildContext dialogContext;
 
-  SearchDelegatePage(int module){
+  SearchDelegatePage(int module) {
     moduleId = module;
   }
 
@@ -80,31 +80,37 @@ class SearchDelegatePage extends SearchDelegate {
           final books = snapshot.data;
           return ListView(
               children: books.map((book) {
-            return ListTile(
-              leading: book.extension == "mp4"
-                  ? Icon(Icons.video_library)
-                  : Icon(Icons.image),
-              title: Text(book.name),
-              subtitle: Text(book.activity),
-              onTap: () async {
-                close(context, null);
-                var tempDir = await getApplicationDocumentsDirectory();
-                String fullPath =
-                    tempDir.path + "/" + book.name + "." + book.extension;
-                print('full path ${fullPath}');
-                showAlert(context);
-                String filepath = await download2(dio, book.download, fullPath);
-                String map = book.map;
-                _callRA(filepath, map);
-                // if (Platform.isAndroid) {
-                //
-                //   //Navigator.pushNamed(context, 'AndroidRA', arguments: <String, String>{ "URL" : book.objectUrl});
-                // } else {
+            return Column(
+              children: [
+                ListTile(
+                  leading: book.extension == "mp4"
+                      ? Icon(Icons.video_library)
+                      : Icon(Icons.image),
+                  title: Text(book.name),
+                  subtitle: Text(book.activity),
+                  onTap: () async {
+                    close(context, null);
+                    var tempDir = await getApplicationDocumentsDirectory();
+                    String fullPath =
+                        tempDir.path + "/" + book.name + "." + book.extension;
+                    print('full path ${fullPath}');
+                    showAlert(context);
+                    String filepath =
+                        await download2(dio, book.download, fullPath);
+                    String map = book.map;
+                    _callRA(filepath, map);
+                    // if (Platform.isAndroid) {
+                    //
+                    //   //Navigator.pushNamed(context, 'AndroidRA', arguments: <String, String>{ "URL" : book.objectUrl});
+                    // } else {
 
-                //   Navigator.pushNamed(context, 'IOSRA');
+                    //   Navigator.pushNamed(context, 'IOSRA');
 
-                // }
-              },
+                    // }
+                  },
+                ),
+                Divider(),
+              ],
             );
           }).toList());
         } else {
@@ -128,35 +134,44 @@ class SearchDelegatePage extends SearchDelegate {
         if (snapshot.hasData) {
           final books = snapshot.data;
 
-          return ListView(
-              children: books.map((book) {
-            return ListTile(
-              leading: book.extension == "mp4"
-                  ? Icon(Icons.video_library)
-                  : Icon(Icons.image),
-              title: Text(book.name),
-              subtitle: Text(book.activity),
-              onTap: () async {
-                close(context, null);
-                var tempDir = await getApplicationDocumentsDirectory();
-                String fullPath =
-                    tempDir.path + "/" + book.name + "." + book.extension;
-                showAlert(context);
-                String filepath = await download2(dio, book.download, fullPath);
-                String map = book.map;
-                Navigator.pop(dialogContext);
-                _callRA(filepath, map);
-                // if (Platform.isAndroid) {
-                //
-                //   //Navigator.pushNamed(context, 'AndroidRA', arguments: <String, String>{ "URL" : book.objectUrl});
-                // } else {
+          return Container(
+            padding: EdgeInsets.only(top: 20.0),
+            child: ListView(
+                children: books.map((book) {
+              return Column(
+                children: [
+                  ListTile(
+                    leading: book.extension == "mp4"
+                        ? Icon(Icons.video_library)
+                        : Icon(Icons.image),
+                    title: Text(book.name),
+                    subtitle: Text(book.activity),
+                    onTap: () async {
+                      close(context, null);
+                      var tempDir = await getApplicationDocumentsDirectory();
+                      String fullPath =
+                          tempDir.path + "/" + book.name + "." + book.extension;
+                      showAlert(context);
+                      String filepath =
+                          await download2(dio, book.download, fullPath);
+                      String map = book.map;
+                      Navigator.pop(dialogContext);
+                      _callRA(filepath, map);
+                      // if (Platform.isAndroid) {
+                      //
+                      //   //Navigator.pushNamed(context, 'AndroidRA', arguments: <String, String>{ "URL" : book.objectUrl});
+                      // } else {
 
-                //   Navigator.pushNamed(context, 'IOSRA');
+                      //   Navigator.pushNamed(context, 'IOSRA');
 
-                // }
-              },
-            );
-          }).toList());
+                      // }
+                    },
+                  ),
+                  Divider(),
+                ],
+              );
+            }).toList()),
+          );
         } else {
           return Center(child: CircularProgressIndicator());
         }
